@@ -1,0 +1,8 @@
+{
+    "lstm_units": 128,
+    "dnn_units": 768,
+    "dropout_rate": 0.5,
+    "recurrent_dropout": 0.23649849478975418,
+    "learning_rate": 0.0005763357519004452,
+    "batch_size": 128
+}
