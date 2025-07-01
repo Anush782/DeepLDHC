@@ -33,13 +33,13 @@ pip install -r requirements.txt
 │   └── 📝 README.md                ← Data Specifications  
 
 # <img src="https://img.icons8.com/color/30/000000/rocket.png"/> Quick Start
-1. <img src="https://img.icons8.com/color/20/000000/data-configuration.png"/> Data Preparation
+## 1. <img src="https://img.icons8.com/color/20/000000/data-configuration.png"/> Data Preparation
 ```   
 df = pd.read_csv("your_data.csv")  # Shape: (samples, features)
 labels = pd.read_csv("your_labels.csv") 
 ```
 # 🚀 How to Use the Scripts
-2. Replace Synthetic Data
+## 2. Replace Synthetic Data
 
     * Each script has a section for data loading.
     * Replace the synthetic data snippet with your dataset:
@@ -49,7 +49,7 @@ labels = pd.read_csv("your_labels.csv")
    df = pd.read_csv("data/synthetic_data.csv")  # Remove this  
    df = pd.read_csv("your_dataset.csv")           # Use your file
    ```
-3. <img src="https://img.icons8.com/color/20/000000/console.png"/> Execute Scripts
+## 3. <img src="https://img.icons8.com/color/20/000000/console.png"/> Execute Scripts
    ```
    # For classification:
    python scripts/classification.py --data_path your_data.csv
@@ -57,7 +57,7 @@ labels = pd.read_csv("your_labels.csv")
    python scripts/neural_networks/cnn_lstm.py --epochs 150
    ```
 
-4. <img src="https://img.icons8.com/color/20/000000/tuning-fork.png"/> Hyperparameter Tuning
+## 4. <img src="https://img.icons8.com/color/20/000000/tuning-fork.png"/> Hyperparameter Tuning
    Modify objective() in any Optuna script:
    ```
    def objective(trial):
@@ -66,26 +66,39 @@ labels = pd.read_csv("your_labels.csv")
         'units': trial.suggest_categorical('units', [64, 128, 256])
     }
    ```
-   
+## 5. ⚙️ Tunable Parameters
+All key training parameters can be modified in the scripts' configuration sections:
+
+```python
+# In optimization scripts :
+N_TRIALS = 30  # Number of Optuna optimization trials (recommended: 30-100)
+
+# In cross-validation scripts:
+N_FOLDS = 8    # Number of cross-validation folds (typically 5-10)
+N_EPOCHS_CV = 50  # Epochs per fold during CV
+
+# In final training:
+N_EPOCHS_FINAL = 150  # Epochs for final model training
+```
+  
 # <img src="https://img.icons8.com/color/30/000000/architecture.png"/> Model Architecture
-Component	Key Features
 Component Details:
-1. INITIALIZATION:
+## 1. INITIALIZATION:
    - Sets random seeds (42)
    - Creates directory structure
    - Disables GPU (optional)
 
-2. DATA LOADING:
+## 2. DATA LOADING:
    - Receives X,y (placeholder for real data)
    - Performs train-test split (80-20)
    - Stratified sampling for class balance
 
-3. MODEL DEFINITION:
+## 3. MODEL DEFINITION:
    - 1D-CNN → LSTM → DNN architecture
    - BatchNorm/Dropout layers
    - Custom metrics (AUC, Precision, Recall)
 
-4. HYPERPARAMETER OPTIMIZATION:
+## 4. HYPERPARAMETER OPTIMIZATION:
    - Optuna searches over:
      • CNN filters/kernel size
      • LSTM units
@@ -93,28 +106,28 @@ Component Details:
      • Batch size
    - Early stopping implemented
 
-5. CROSS-VALIDATION:
+## 5. CROSS-VALIDATION:
    - 8-fold stratified CV
    - Saves per-fold:
      • Model checkpoints
      • Training histories
      • Evaluation metrics
 
-6. FINAL TRAINING:
+## 6. FINAL TRAINING:
    - Trains on full 80% training set
    - 150 epochs with:
      • Model checkpointing
      • CSV logger
      • Early stopping
 
-7. PERSISTENCE:
+## 7. PERSISTENCE:
    - Saves:
      • Final model (.keras)
      • Best parameters (JSON)
      • Optimization history (CSV)
      • Visualizations (PNG)
 
-8. DEPLOYMENT:
+## 8. DEPLOYMENT:
    - load_and_predict() utility:
      • Loads saved model
      • Makes batch predictions
