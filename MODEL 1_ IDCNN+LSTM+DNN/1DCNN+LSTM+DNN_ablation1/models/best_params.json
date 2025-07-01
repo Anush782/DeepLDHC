@@ -1,0 +1,9 @@
+{
+    "cnn_filters": 128,
+    "cnn_kernel": 7,
+    "lstm_units": 128,
+    "dnn_units": 256,
+    "dropout_rate": 0.4,
+    "learning_rate": 0.00029663429364937575,
+    "batch_size": 64
+}
