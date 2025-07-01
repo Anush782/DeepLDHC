@@ -136,13 +136,6 @@ Neural Nets:
 
 MIT License - Free for academic/commercial use with attribution
 
-# <img src="https://img.icons8.com/color/20/000000/github.png"/> Contribute:
-
-```
-git clone https://github.com/yourusername/DeepLDHC.git  
-# Submit PRs to dev branch
-```
-
 # <img src="https://img.icons8.com/color/20/000000/bug.png"/> Report Issues:
 ## *GitHub Issues or enhancements, open a GitHub Issue or submit a Pull Request*
 
