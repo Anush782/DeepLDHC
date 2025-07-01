@@ -1,0 +1,9 @@
+{
+    "dnn_units_1": 128,
+    "dnn_units_2": 128,
+    "n_layers": 2,
+    "dropout_rate": 0.46423237552050955,
+    "learning_rate": 0.0005537847863539963,
+    "l2_reg": 2.3731191622434338e-05,
+    "batch_size": 256
+}
